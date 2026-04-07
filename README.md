@@ -45,6 +45,16 @@ class Solution:
         return cur                           # 遍历完所有房屋后，cur里存的就是最终能拿到的最高金额
 ```
 
+改成下面的更直观看出前一个previous，前两个pre_previous和当前current：
+```python
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        previous, pre_previous = 0, 0
+        for current in nums:
+            previous, pre_previous = max(current + pre_previous, previous), previous
+        return previous
+```
+
 -----
 
 ### （4）每一行代码的详细中文解释
